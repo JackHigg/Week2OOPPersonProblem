@@ -1,0 +1,122 @@
+package Tutorial1;
+
+
+import java.util.Scanner;
+
+public class person {
+
+    static Scanner kboard = new Scanner (System.in);
+
+    private String forename;   //declares private fields so they are only accessible through this class
+    private String surname;
+    private String emailAddress;
+    private int age;
+    private String mobileNumber;
+
+    public person(){  //person Constructor
+
+        this.getForename();  // calls this classes getForename() function
+        this.getSurname();   // calls this classes getSurname() function
+        this.getEmail();     // calls this classes getEmail() function
+        this.getAge();       // calls this classes getAge() function
+        this.getMobile();    // calls this classes getMobile() function
+
+    }
+
+    public person(String getForename, String getSurname){
+
+        forename=getForename;
+        surname=getSurname;
+    }
+
+
+    public person(String getForename, String getSurname, int getAge){
+
+        forename=getForename;
+        surname=getSurname;
+        age=getAge;
+
+
+    }
+
+    public person(String getForename, String getSurname,String getEmail, int getAge){
+
+        emailAddress=getEmail;
+        forename=getForename;
+        surname=getSurname;
+        age=getAge;
+
+
+    }
+
+    public person(String getForename, String getSurname,String getEmail, int getAge, String getMobile){
+
+        emailAddress=getEmail;
+        forename=getForename;
+        surname=getSurname;
+        age=getAge;
+        mobileNumber=getMobile;
+
+    }
+
+
+
+    public void getForename() {
+
+        System.out.println("Please enter forename of person");
+        forename=kboard.next();
+
+    }
+
+    public void getSurname() {
+
+        System.out.println("Please enter Surname of person");
+        surname=kboard.next();
+
+
+    }
+
+    public void getEmail() {
+
+        System.out.println("Please enter Email of person");
+        emailAddress=kboard.next();
+
+    }
+
+    public void getAge() {
+
+        System.out.println("Please enter age of person");
+        age=kboard.nextInt();
+
+        while (!checkAge(age)){        //loops until age entered is over 18
+
+            System.out.println("Sorry you must be 18 or over!!!");
+            System.out.println("Please enter age of person");
+            age=kboard.nextInt();
+
+        }
+
+    }
+
+    public void getMobile() {
+
+        System.out.println("Please enter mobile number of person");
+        mobileNumber=kboard.next();
+
+    }
+
+
+    public void displayPerson(){
+        System.out.println("Person details \nForename: "+forename+"\nSurname: "+surname+"\nEmail: "+emailAddress+"\nAge: "+age+"\nMobile: "+mobileNumber);
+    }
+
+    private boolean checkAge(int age) {
+
+        boolean ok;
+
+        ok= (age >=18) ? true : false; //ternary operator used to check value of age if is it less than 18 false is returned
+
+        return (ok);
+
+    }
+}
